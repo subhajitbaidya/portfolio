@@ -329,7 +329,7 @@ footer {
 
 .footer-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -350,6 +350,7 @@ footer {
 
 .social-links {
   display: flex;
+  justify-content: center;
   gap: 1rem;
 }
 
