@@ -11,7 +11,7 @@
 body {
   line-height: 1.6;
   color: #333;
-  background-color: #f9f9f9;
+  background-color: #fdf2e9;
 }
 
 a {
@@ -33,7 +33,7 @@ a:hover {
 
 /* Header */
 header {
-  background-color: rgb(221, 221, 165);
+  background-color: #f1d2b5;
 
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   position: fixed;
@@ -60,12 +60,15 @@ header {
 .logo img {
   width: 100px; /* or any fixed size */
   height: 100px;
+  box-shadow: #111;
+
   object-fit: cover; /* ensures the image fills the area */
   border-radius: 50%; /* makes it a circle */
 }
 
 .nav-links {
   display: flex;
+  border: none;
   gap: 2rem;
   list-style: none;
 }
@@ -147,12 +150,18 @@ header {
 
 .about-img {
   flex: 1;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+.about-img:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
 }
 
 .about-img img {
   width: 100%;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .about-text {
