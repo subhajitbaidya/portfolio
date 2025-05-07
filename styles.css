@@ -53,13 +53,14 @@ header {
 .logo {
   font-size: 1.5rem;
   border-radius: 50px;
+  padding: 0.5rem 1rem;
   font-weight: 700;
-
-  color: #f9f9f9;
 }
 .logo img {
   width: 100px; /* or any fixed size */
   height: 100px;
+  background-color: transparent;
+  border: #111 solid 2px;
   box-shadow: #111;
 
   object-fit: cover; /* ensures the image fills the area */
@@ -71,9 +72,12 @@ header {
   gap: 2rem;
   list-style: none;
 }
+#main-text {
+  color: orange;
+}
 
 .nav-links a {
-  color: #555;
+  color: #462d2d;
   font-weight: 500;
   border: none;
   transition: color 0.3s ease;
@@ -98,7 +102,8 @@ header {
 
 .hero-content {
   max-width: 800px;
-  margin: 0 auto;
+  padding: 2rem;
+  margin: 2rem auto;
 }
 
 .hero h1 {
@@ -118,9 +123,11 @@ header {
   background-color: orange;
   border-radius: 50px;
   color: #fff;
+  margin: 2rem auto;
   padding: 0.75rem 1.5rem;
   border-radius: 0.25rem;
   font-weight: 500;
+  letter-spacing: 0.05em;
   transition: background-color 0.3s ease;
 }
 

@@ -45,11 +45,15 @@ window.addEventListener("scroll", () => {
       scrollPosition >= sectionTop &&
       scrollPosition < sectionTop + sectionHeight
     ) {
-      document.querySelector(`a[href="#${sectionId}"]`).classList.add("active");
+      const navLink = document.querySelector(`a[href="#${sectionId}"]`);
+      if (navLink) {
+        navLink.classList.add("active");
+      }
     } else {
-      document
-        .querySelector(`a[href="#${sectionId}"]`)
-        .classList.remove("active");
+      const navLink = document.querySelector(`a[href="#${sectionId}"]`);
+      if (navLink) {
+        navLink.classList.remove("active");
+      }
     }
   });
 });
