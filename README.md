@@ -5,6 +5,18 @@ I have hosted it using Github Pages for continous changes to update on the main 
 
 Feel free to clone it if you like the minimalistic design 😊
 
+# Clone guide
+
+Type this commands on command prompt one by one.
+
+```
+- mkdir folder-name
+- git clone https://github.com/subhajitbaidya/portfolio.git
+- cd folder-name
+- code .
+- You can also open the folder directly in any IDE
+```
+
 # Sections of Header
 
 - About
