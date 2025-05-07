@@ -132,7 +132,7 @@ header {
 }
 
 .btn:hover {
-  background-color: #1e40af;
+  background-color: #e92323;
   color: #fff;
 }
 
@@ -161,6 +161,7 @@ header {
   transition: all 0.3s ease;
 }
 .about-img:hover {
+  border: #e92323 solid 1px;
   transform: translateY(-6px);
   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
 }
