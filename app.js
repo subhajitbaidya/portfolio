@@ -61,7 +61,7 @@ window.addEventListener("scroll", () => {
 document.querySelector(".hero-content").addEventListener("click", function (e) {
   // Avoid double triggering if the button was clicked
   if (!e.target.closest(".hero-button")) {
-    const contactSection = document.querySelector("#contact");
+    const contactSection = document.querySelector("#about");
     if (contactSection) {
       contactSection.scrollIntoView({
         behavior: "smooth",
@@ -105,6 +105,10 @@ document.querySelector(".projects").addEventListener("click", function () {
   const projectLink = document.querySelector(".btn");
   if (projectLink) {
     projectLink.click(); // Simulate a real click
+    projectLink.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   }
 });
 
