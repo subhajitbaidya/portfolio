@@ -81,3 +81,39 @@ document.querySelector(".logo").addEventListener("click", function () {
   }
 });
 
+document.querySelector(".about-img img").addEventListener("click", function () {
+  const homeSection = document.querySelector("#skills");
+  if (homeSection) {
+    homeSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+});
+
+document.querySelector(".skills").addEventListener("click", function () {
+  const homeSection = document.querySelector("#projects");
+  if (homeSection) {
+    homeSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+});
+
+document.querySelector(".projects").addEventListener("click", function () {
+  const projectLink = document.querySelector(".btn");
+  if (projectLink) {
+    projectLink.click(); // Simulate a real click
+  }
+});
+
+document.querySelector("#footer").addEventListener("click", function () {
+  const homeSection = document.querySelector("#home");
+  if (homeSection) {
+    homeSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+});
