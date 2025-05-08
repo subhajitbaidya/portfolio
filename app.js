@@ -58,32 +58,66 @@ window.addEventListener("scroll", () => {
 });
 
 // Big button click event
+// document.querySelector(".hero-content").addEventListener("click", function (e) {
+//   // Avoid double triggering if the button was clicked
+//   if (!e.target.closest(".hero-button")) {
+//     const contactSection = document.querySelector("#about");
+//     if (contactSection) {
+//       contactSection.scrollIntoView({
+//         behavior: "smooth",
+//         block: "start", // Adjusts the scroll position to start at the top
+//       });
+//     }
+//   }
+//   const isMobile = window.innerWidth <= 768;
+//   if (isMobile) {
+//     setTimeout(() => {
+//       // Animation logic here, e.g.:
+//       this.classList.add("animate");
+//       // Remove the class after animation if needed
+//       setTimeout(() => this.classList.remove("animate"), 600);
+//     }, 200); // 200ms delay
+//   } else {
+//     // Desktop: no delay
+//     this.classList.add("animate");
+//     setTimeout(() => this.classList.remove("animate"), 600);
+//   }
+// });
+
 document.querySelector(".hero-content").addEventListener("click", function (e) {
+  const isMobile = window.innerWidth <= 768;
+
   // Avoid double triggering if the button was clicked
   if (!e.target.closest(".hero-button")) {
     const contactSection = document.querySelector("#about");
     if (contactSection) {
-      contactSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start", // Adjusts the scroll position to start at the top
-      });
+      if (isMobile) {
+        setTimeout(() => {
+          contactSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }, 200); // Delay scroll for mobile
+      } else {
+        contactSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
     }
   }
-  const isMobile = window.innerWidth <= 768;
+
+  // Animation logic (optional delay for mobile)
   if (isMobile) {
     setTimeout(() => {
-      // Animation logic here, e.g.:
       this.classList.add("animate");
-      // Remove the class after animation if needed
       setTimeout(() => this.classList.remove("animate"), 600);
-    }, 200); // 200ms delay
+    }, 200);
   } else {
-    // Desktop: no delay
     this.classList.add("animate");
     setTimeout(() => this.classList.remove("animate"), 600);
   }
 });
-
 
 
 document.querySelector(".logo").addEventListener("click", function () {
