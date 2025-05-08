@@ -3,7 +3,7 @@ const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 
 menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
+  navLinks.classList.toggle("open");
 });
 
 // Smooth scrolling for anchor links
@@ -21,13 +21,12 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       });
 
       // Close mobile menu if open
-      if (navLinks.classList.contains("active")) {
-        navLinks.classList.remove("active");
+      if (navLinks.classList.contains("open")) {
+        navLinks.classList.remove("open");
       }
     }
   });
 });
-
 
 // Add active class to navbar items on scroll
 window.addEventListener("scroll", () => {
@@ -56,4 +55,18 @@ window.addEventListener("scroll", () => {
       }
     }
   });
+});
+
+// Big button click event
+document.querySelector(".hero-content").addEventListener("click", function (e) {
+  // Avoid double triggering if the button was clicked
+  if (!e.target.closest(".hero-button")) {
+    const contactSection = document.querySelector("#contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start", // Adjusts the scroll position to start at the top
+      });
+    }
+  }
 });
