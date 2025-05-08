@@ -70,3 +70,14 @@ document.querySelector(".hero-content").addEventListener("click", function (e) {
     }
   }
 });
+
+document.querySelector(".logo").addEventListener("click", function () {
+  const homeSection = document.querySelector("#home");
+  if (homeSection) {
+    homeSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+});
+
