@@ -69,7 +69,22 @@ document.querySelector(".hero-content").addEventListener("click", function (e) {
       });
     }
   }
+  const isMobile = window.innerWidth <= 768;
+  if (isMobile) {
+    setTimeout(() => {
+      // Animation logic here, e.g.:
+      this.classList.add("animate");
+      // Remove the class after animation if needed
+      setTimeout(() => this.classList.remove("animate"), 600);
+    }, 200); // 200ms delay
+  } else {
+    // Desktop: no delay
+    this.classList.add("animate");
+    setTimeout(() => this.classList.remove("animate"), 600);
+  }
 });
+
+
 
 document.querySelector(".logo").addEventListener("click", function () {
   const homeSection = document.querySelector("#home");

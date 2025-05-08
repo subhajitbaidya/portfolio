@@ -481,13 +481,14 @@ footer {
     top: 70px;
     left: 0;
     right: 0;
-    background-color: #fff;
+    background-color: #f1d2b5;
     flex-direction: column;
     padding: 1.5rem;
     gap: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transform: translateY(-200%);
     transition: transform 0.3s ease;
+    z-index: 999;
   }
 
   .nav-links.open {
