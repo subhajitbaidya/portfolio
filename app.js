@@ -121,3 +121,15 @@ document.querySelector("#footer").addEventListener("click", function () {
     });
   }
 });
+
+// Typing animation
+let typeAnimation = new Typed("#main-text", {
+  strings: ["A Software Engineer", "A Web Developer", "A Tech Enthusiast"],
+  typeSpeed: 100, // slower typing
+  backSpeed: 60, // slower backspacing
+  loop: true,
+  startDelay: 3000, // delay before typing starts
+  backDelay: 100,
+  smartBackspace: true, // only backspace what doesn't match the next string
+  showCursor: false,
+});

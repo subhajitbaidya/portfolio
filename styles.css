@@ -74,6 +74,7 @@ header {
 }
 #main-text {
   color: orange;
+  transition: color 0.3s ease, font-weight 0.3s ease;
 }
 
 .nav-links a {
@@ -99,6 +100,7 @@ header {
 .hero {
   margin-top: 20vh;
   padding: 10rem 0 5rem;
+  cursor: pointer;
   text-align: center;
 }
 
@@ -130,6 +132,16 @@ header {
   transform: translateY(-5px);
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
+.hero-content:hover #main-text {
+  background: linear-gradient(
+    90.1deg,
+    rgba(122, 0, 0, 1) 8.1%,
+    rgba(217, 42, 42, 1) 74.4%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 .hero h1 {
   font-size: 3rem;
@@ -145,7 +157,7 @@ header {
 
 .btn {
   display: inline-block;
-  background-color: lightgreen;
+  background: none;
   border-radius: 50px;
   color: #1f2937;
   margin: 2rem auto;
@@ -154,11 +166,15 @@ header {
   font-weight: 500;
   letter-spacing: 0.05em;
   transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-  background-color: red;
   color: #f0f4ff;
+  background: linear-gradient(
+    90.1deg,
+    rgba(122, 0, 0, 1) 8.1%,
+    rgba(217, 42, 42, 1) 74.4%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* About section */
@@ -171,7 +187,7 @@ header {
   font-size: 2rem;
   margin-bottom: 3rem;
   text-align: center;
-  color: #111;
+  color: #333;
 }
 
 .about-content {
@@ -204,7 +220,7 @@ header {
 .about-text h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: #111;
+  color: #333;
 }
 
 .about-text p {
@@ -225,7 +241,7 @@ header {
 }
 
 .skill-card {
-  background: linear-gradient(135deg, #fdf2e9, #f1d2b5);
+  background: linear-gradient(135deg, #fdf2e9, #e1d0c0);
   padding: 2rem;
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -240,11 +256,18 @@ header {
 .skill-card h3 {
   font-size: 1.25rem;
   margin-bottom: 1rem;
-  color: #111;
+  background: linear-gradient(
+    90.1deg,
+    rgba(122, 0, 0, 1) 8.1%,
+    rgba(217, 42, 42, 1) 74.4%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .skill-card p {
-  color: #555;
+  color: #333;
 }
 
 /* Projects section */
@@ -262,7 +285,7 @@ header {
 .project-card {
   border-radius: 0.5rem;
   overflow: hidden;
-  background-color: bisque;
+  background: linear-gradient(135deg, #fdf2e9, #e1d0c0);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
