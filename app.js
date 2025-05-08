@@ -97,7 +97,7 @@ document.querySelector(".hero-content").addEventListener("click", function (e) {
             behavior: "smooth",
             block: "start",
           });
-        }, 200); // Delay scroll for mobile
+        }, 2000); // Delay scroll for mobile
       } else {
         contactSection.scrollIntoView({
           behavior: "smooth",
@@ -111,14 +111,13 @@ document.querySelector(".hero-content").addEventListener("click", function (e) {
   if (isMobile) {
     setTimeout(() => {
       this.classList.add("animate");
-      setTimeout(() => this.classList.remove("animate"), 600);
-    }, 200);
+      setTimeout(() => this.classList.remove("animate"), 2000);
+    }, 400);
   } else {
     this.classList.add("animate");
-    setTimeout(() => this.classList.remove("animate"), 600);
+    setTimeout(() => this.classList.remove("animate"), 2000);
   }
 });
-
 
 document.querySelector(".logo").addEventListener("click", function () {
   const homeSection = document.querySelector("#home");
