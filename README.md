@@ -29,6 +29,9 @@ All the sections are defined in the section tag and it is a single page website 
 
 # Hero Section
 
+For the animation, a library called Typed Js is used.
+[Typed Js repository and Docs](https://github.com/mattboldt/typed.js)
+
 - About Info
 - Technical Skills
 - Project Details
