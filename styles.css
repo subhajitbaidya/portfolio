@@ -63,12 +63,9 @@ header {
   cursor: pointer;
 }
 .logo img {
-  width: 100px; /* or any fixed size */
-  height: 100px;
+  max-width: 100%;
   background-color: transparent;
-  border: #111 solid 2px;
   box-shadow: #111;
-
   object-fit: cover; /* ensures the image fills the area */
   border-radius: 50%; /* makes it a circle */
 }
