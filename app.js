@@ -15,6 +15,13 @@ window.addEventListener("load", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
+// Fix: Menu toggle functionality for mobile
+const initMenuToggle = () => {
+  menuToggle?.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+  });
+};
+
 // Utility: Smooth scroll to a section
 const scrollToSection = (selector, offset = 70, delay = 0) => {
   const section = document.querySelector(selector);
@@ -73,11 +80,15 @@ const initHeroClick = () => {
       scrollToSection("#about", 70, isMobile ? 2000 : 0);
     }
 
-    // Animation logic
+    // Adjust animation timing for mobile
+    const animationDuration = isMobile ? 3000 : 2000;
     setTimeout(
       () => {
         heroContent.classList.add("animate");
-        setTimeout(() => heroContent.classList.remove("animate"), 2000);
+        setTimeout(
+          () => heroContent.classList.remove("animate"),
+          animationDuration
+        );
       },
       isMobile ? 400 : 0
     );
