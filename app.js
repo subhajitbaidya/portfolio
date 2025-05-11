@@ -1,5 +1,5 @@
 // Elements
-const menuToggle = document.getElementById("menuToggle");
+const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("navLinks");
 const heroContent = document.querySelector(".hero-content");
 const aboutImg = document.querySelector(".about-img img");
