@@ -1,32 +1,7 @@
-// Elements
-const menuToggle = document.getElementById("menu-toggle");
-const navLinks = document.getElementById("navLinks");
-const heroContent = document.querySelector(".hero-content");
-const aboutImg = document.querySelector(".about-img img");
-const logo = document.querySelector(".logo");
-const skillsBtn = document.querySelector(".skills");
-const projectsBtn = document.querySelector(".projects");
-const footer = document.getElementById("footer");
-const contactSection = document.getElementById("contact");
-const mainText = document.getElementById("main-text");
-
-let toggleToContact = true;
-window.addEventListener("load", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-// Fix: Menu toggle functionality for mobile
-const initMenuToggle = () => {
-  menuToggle?.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
-  });
-};
-
-// Utility: Smooth scroll to a section
+// Utility Functions
 const scrollToSection = (selector, offset = 70, delay = 0) => {
   const section = document.querySelector(selector);
   if (!section) return;
-
   setTimeout(() => {
     window.scrollTo({
       top: section.offsetTop - offset,
@@ -35,96 +10,98 @@ const scrollToSection = (selector, offset = 70, delay = 0) => {
   }, delay);
 };
 
-// Handle anchor links smooth scroll and mobile menu toggle
+const isMobile = () => window.innerWidth <= 768;
+
+// Initialization Functions
 const initAnchorLinks = () => {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", (e) => {
       e.preventDefault();
       const targetId = anchor.getAttribute("href");
-      scrollToSection(targetId);
-
-      // Close mobile menu
-      if (navLinks.classList.contains("open")) {
-        navLinks.classList.remove("open");
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (navLinks.classList.contains("open")) {
+          navLinks.classList.remove("open");
+        }
       }
     });
   });
 };
 
-// Add active class to nav links on scroll
 const initScrollSpy = () => {
+  let scrollTimeout;
   window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
-
-    document.querySelectorAll("section").forEach((section) => {
-      const top = section.offsetTop - 100;
-      const bottom = top + section.offsetHeight;
-      const id = section.getAttribute("id");
-      const navLink = document.querySelector(`a[href="#${id}"]`);
-
-      if (scrollY >= top && scrollY < bottom) {
-        navLink?.classList.add("active");
-      } else {
-        navLink?.classList.remove("active");
-      }
-    });
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      const scrollY = window.scrollY;
+      document.querySelectorAll("section").forEach((section) => {
+        const top = section.offsetTop - 100;
+        const bottom = top + section.offsetHeight;
+        const id = section.getAttribute("id");
+        const navLink = document.querySelector(`a[href="#${id}"]`);
+        if (scrollY >= top && scrollY < bottom) {
+          navLink?.classList.add("active");
+        } else {
+          navLink?.classList.remove("active");
+        }
+      });
+    }, 100);
   });
 };
 
-// Hero section animation and scroll logic
 const initHeroClick = () => {
+  const heroContent = document.querySelector(".hero-content");
   heroContent?.addEventListener("click", (e) => {
-    const isMobile = window.innerWidth <= 768;
-    const isButton = e.target.closest(".hero-button");
-    if (!isButton) {
-      scrollToSection("#about", 70, isMobile ? 2000 : 0);
-    }
-
-    // Adjust animation timing for mobile
-    const animationDuration = isMobile ? 3000 : 2000;
-    setTimeout(
-      () => {
-        heroContent.classList.add("animate");
+    if (!e.target.closest(".hero-button")) {
+      const aboutSection = document.querySelector("#about");
+      if (aboutSection) {
         setTimeout(
-          () => heroContent.classList.remove("animate"),
-          animationDuration
+          () => {
+            aboutSection.scrollIntoView({ behavior: "smooth", block: "start" });
+          },
+          isMobile() ? 2000 : 0
         );
-      },
-      isMobile ? 400 : 0
-    );
+      }
+    }
+    heroContent.classList.add("animate");
+    setTimeout(() => heroContent.classList.remove("animate"), 1000);
   });
 };
 
-// Image click scroll
 const initImageScroll = () => {
-  aboutImg?.addEventListener("click", () => scrollToSection("#skills"));
+  document.querySelector(".about-img img")?.addEventListener("click", () => {
+    scrollToSection("#skills");
+  });
 };
 
-// Logo click toggle scroll
 const initLogoToggle = () => {
+  const logo = document.querySelector(".logo");
+  let toggleToContact = true;
   logo?.addEventListener("click", () => {
     scrollToSection(toggleToContact ? "#contact" : "#home");
     toggleToContact = !toggleToContact;
   });
 };
 
-// Skills and Projects navigation
 const initQuickNav = () => {
-  skillsBtn?.addEventListener("click", () => scrollToSection("#projects"));
-  projectsBtn?.addEventListener("click", () => {
+  document.querySelector(".skills")?.addEventListener("click", () => {
+    scrollToSection("#projects");
+  });
+  document.querySelector(".projects")?.addEventListener("click", () => {
     const btn = document.querySelector(".btn");
     btn?.click();
     btn?.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 };
 
-// Footer to top
 const initFooterScroll = () => {
-  footer?.addEventListener("click", () => scrollToSection("#home", 0));
+  document.querySelector("#footer")?.addEventListener("click", () => {
+    scrollToSection("#home", 0);
+  });
 };
 
 const initSocialLinks = () => {
-  // Social links scroll to footer
   document.querySelectorAll(".social-links a").forEach(function (anchor) {
     anchor.addEventListener("click", function (event) {
       // Store the clicked <a> tag in a variable
@@ -150,9 +127,8 @@ const initSocialLinks = () => {
   });
 };
 
-// Contact click back to top unless paragraph
 const initContactScroll = () => {
-  contactSection?.addEventListener("click", (e) => {
+  document.querySelector("#contact")?.addEventListener("click", (e) => {
     if (!e.target.closest("p")) {
       scrollToSection("#home", 0);
     }
@@ -160,24 +136,39 @@ const initContactScroll = () => {
 };
 
 const initTyping = () => {
-  let typeAnimation = new Typed("#main-text", {
+  new Typed("#main-text", {
     strings: [
       "A Software Engineer",
       "A Full Stack Developer",
       "A Tech Enthusiast",
     ],
-    typeSpeed: 40, // slower typing for smoother effect
-    backSpeed: 30, // slower backspacing for natural feel
+    typeSpeed: 60,
+    backSpeed: 40,
     loop: true,
-    startDelay: 1500, // starts a bit sooner
-    backDelay: 2000, // more time before backspacing
-    smartBackspace: true, // only remove what's necessary
+    startDelay: 1500,
+    backDelay: 2000,
+    smartBackspace: true,
     showCursor: false,
   });
 };
 
-// Initialize all features
+const initMenuToggle = () => {
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+  menuToggle?.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+  });
+};
+
+const initScrollToTopOnLoad = () => {
+  window.addEventListener("load", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+};
+
+// Main Init Function
 const init = () => {
+  initScrollToTopOnLoad();
   initAnchorLinks();
   initScrollSpy();
   initHeroClick();
@@ -188,8 +179,8 @@ const init = () => {
   initSocialLinks();
   initContactScroll();
   initTyping();
-  initSocialLinks();
+  initMenuToggle();
 };
 
-// Run
+// Run the app
 init();
