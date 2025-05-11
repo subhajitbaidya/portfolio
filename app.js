@@ -11,6 +11,9 @@ const contactSection = document.getElementById("contact");
 const mainText = document.getElementById("main-text");
 
 let toggleToContact = true;
+window.addEventListener("load", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 
 // Utility: Smooth scroll to a section
 const scrollToSection = (selector, offset = 70, delay = 0) => {
@@ -146,32 +149,19 @@ const initContactScroll = () => {
 };
 
 const initTyping = () => {
-  const prefix = document.getElementById("prefix");
-  const mainText = document.getElementById("main-text");
-
-  if (!prefix || !mainText) return;
-
-  // Step 1: Type "I am " only once
-  const intro = new Typed("#prefix", {
-    strings: ["I am "],
-    typeSpeed: 50,
+  let typeAnimation = new Typed("#main-text", {
+    strings: [
+      "A Software Engineer",
+      "A Full Stack Developer",
+      "A Tech Enthusiast",
+    ],
+    typeSpeed: 40, // slower typing for smoother effect
+    backSpeed: 30, // slower backspacing for natural feel
+    loop: true,
+    startDelay: 1500, // starts a bit sooner
+    backDelay: 2000, // more time before backspacing
+    smartBackspace: true, // only remove what's necessary
     showCursor: false,
-    onComplete: () => {
-      // Step 2: Start looping dynamic titles
-      new Typed("#main-text", {
-        strings: [
-          "a Software Engineer",
-          "a Web Developer",
-          "a Tech Enthusiast",
-        ],
-        typeSpeed: 40,
-        backSpeed: 30,
-        backDelay: 3000,
-        loop: true,
-        smartBackspace: true,
-        showCursor: false,
-      });
-    },
   });
 };
 
