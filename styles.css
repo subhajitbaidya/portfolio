@@ -94,6 +94,7 @@ header {
 
 /* Mobile menu */
 .menu-toggle {
+  display: none;
   cursor: pointer;
   font-size: 1.5rem;
 }
