@@ -146,10 +146,11 @@ header {
   -webkit-text-fill-color: transparent;
 }
 
-.hero h1 {
+.hero h1,
+#prefix {
   font-size: 3rem;
   margin-bottom: 1.5rem;
-  color: #111;
+  color: #555;
 }
 
 .hero p {
@@ -192,9 +193,13 @@ header {
 }
 
 .section-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 2rem;
   margin-bottom: 3rem;
   text-align: center;
+  gap: 0.5rem;
   color: #333;
 }
 
@@ -518,11 +523,11 @@ footer {
     font-size: 2rem;
   }
 
-  .section-title {
-    font-size: 1.75rem;
-  }
-
   .skills-container {
     grid-template-columns: 1fr;
   }
+}
+#coffee {
+  margin-top: 50px;
+  padding: 5px;
 }
