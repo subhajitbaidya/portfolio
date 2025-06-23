@@ -88,11 +88,6 @@ const initQuickNav = () => {
   document.querySelector(".skills")?.addEventListener("click", () => {
     scrollToSection("#projects");
   });
-  document.querySelector(".projects")?.addEventListener("click", () => {
-    const btn = document.querySelector(".btn");
-    btn?.click();
-    btn?.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
 };
 
 const initFooterScroll = () => {
@@ -130,7 +125,7 @@ const initSocialLinks = () => {
 const initContactScroll = () => {
   document.querySelector("#contact")?.addEventListener("click", (e) => {
     if (!e.target.closest("p")) {
-      scrollToSection("#home", 0);
+      document.getElementById("email").click();
     }
   });
 };
