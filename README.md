@@ -1,6 +1,6 @@
 # My Professional Portfolio
 
-My portfolio website for showcasing my work. I have used HTML CSS and Javascript to design and make this static website. It does not have a backend as it is not needed.
+Simple ortfolio website for showcasing my work. I have used HTML CSS and Javascript to design and made this a static website. It does not have a backend as it is not currently needed.
 I have hosted it using Github Pages for continous changes to update on the main website and keeping the deployment easy.
 
 Feel free to clone it if you like the minimalistic design 😊
