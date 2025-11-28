@@ -18,7 +18,7 @@ const initAnchorLinks = () => {
 
       const targetId = anchor.getAttribute("href");
 
-      scrollToSection(targetId, 70);
+      scrollToSection(targetId, 70); // ← use your custom scroll
 
       if (navLinks.classList.contains("open")) {
         navLinks.classList.remove("open");
@@ -82,12 +82,6 @@ const initLogoToggle = () => {
   });
 };
 
-const initQuickNav = () => {
-  document.querySelector(".skills")?.addEventListener("click", () => {
-    scrollToSection("#projects");
-  });
-};
-
 const initFooterScroll = () => {
   document.querySelector("#footer")?.addEventListener("click", () => {
     scrollToSection("#home", 0);
@@ -115,14 +109,6 @@ const initSocialLinks = () => {
         window.scrollTo(0, 0);
       }
     });
-  });
-};
-
-const initContactScroll = () => {
-  document.querySelector("#contact")?.addEventListener("click", (e) => {
-    if (!e.target.closest("p")) {
-      document.getElementById("email").click();
-    }
   });
 };
 
@@ -164,10 +150,8 @@ const init = () => {
   initHeroClick();
   initImageScroll();
   initLogoToggle();
-  initQuickNav();
   initFooterScroll();
   initSocialLinks();
-  initContactScroll();
   initTyping();
   initMenuToggle();
 };
