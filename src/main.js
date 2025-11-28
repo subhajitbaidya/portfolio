@@ -15,13 +15,13 @@ const initAnchorLinks = () => {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", (e) => {
       e.preventDefault();
+
       const targetId = anchor.getAttribute("href");
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-        if (navLinks.classList.contains("open")) {
-          navLinks.classList.remove("open");
-        }
+
+      scrollToSection(targetId, 70);
+
+      if (navLinks.classList.contains("open")) {
+        navLinks.classList.remove("open");
       }
     });
   });
