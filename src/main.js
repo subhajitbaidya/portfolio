@@ -2,158 +2,140 @@ const scrollToSection = (selector, offset = 70, delay = 0) => {
   const section = document.querySelector(selector);
   if (!section) return;
   setTimeout(() => {
-    window.scrollTo({
-      top: section.offsetTop - offset,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: section.offsetTop - offset, behavior: "smooth" });
   }, delay);
 };
 
-const isMobile = () => window.innerWidth <= 768;
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+const initHeaderScroll = () => {
+  const header = document.getElementById("header");
+  window.addEventListener("scroll", () => {
+    header.classList.toggle("scrolled", window.scrollY > 20);
+  }, { passive: true });
+};
 
 const initAnchorLinks = () => {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", (e) => {
       e.preventDefault();
-
-      const targetId = anchor.getAttribute("href");
-
-      scrollToSection(targetId, 70); // ← use your custom scroll
-
+      scrollToSection(anchor.getAttribute("href"), 70);
       if (navLinks.classList.contains("open")) {
         navLinks.classList.remove("open");
+        menuToggle.classList.remove("open");
       }
     });
   });
 };
 
 const initScrollSpy = () => {
-  let scrollTimeout;
+  let t;
   window.addEventListener("scroll", () => {
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
+    clearTimeout(t);
+    t = setTimeout(() => {
       const scrollY = window.scrollY;
-      document.querySelectorAll("section").forEach((section) => {
-        const top = section.offsetTop - 100;
-        const bottom = top + section.offsetHeight;
+      document.querySelectorAll("section[id]").forEach((section) => {
+        const top = section.offsetTop - 120;
         const id = section.getAttribute("id");
-        const navLink = document.querySelector(`a[href="#${id}"]`);
-        if (scrollY >= top && scrollY < bottom) {
-          navLink?.classList.add("active");
+        const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+        if (scrollY >= top && scrollY < top + section.offsetHeight) {
+          link?.classList.add("active");
         } else {
-          navLink?.classList.remove("active");
+          link?.classList.remove("active");
         }
       });
-    }, 100);
-  });
+    }, 60);
+  }, { passive: true });
 };
 
-const initHeroClick = () => {
-  const heroContent = document.querySelector(".hero-content");
-  heroContent?.addEventListener("click", (e) => {
-    if (!e.target.closest(".hero-button")) {
-      const aboutSection = document.querySelector("#about");
-      if (aboutSection) {
-        setTimeout(
-          () => {
-            aboutSection.scrollIntoView({ behavior: "smooth", block: "start" });
-          },
-          isMobile() ? 2000 : 0
-        );
-      }
-    }
-    heroContent.classList.add("animate");
-    setTimeout(() => heroContent.classList.remove("animate"), 1000);
-  });
-};
-
-const initImageScroll = () => {
-  document.querySelector(".about-img img")?.addEventListener("click", () => {
-    scrollToSection("#skills");
+const initMenuToggle = () => {
+  menuToggle?.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+    menuToggle.classList.toggle("open");
   });
 };
 
 const initLogoToggle = () => {
-  const logo = document.querySelector(".logo");
-  let toggleToContact = true;
-  logo?.addEventListener("click", () => {
-    scrollToSection(toggleToContact ? "#contact" : "#home");
-    toggleToContact = !toggleToContact;
-  });
-};
-
-const initFooterScroll = () => {
-  document.querySelector("#footer")?.addEventListener("click", () => {
+  document.getElementById("logoBtn")?.addEventListener("click", () => {
     scrollToSection("#home", 0);
   });
 };
 
-const initSocialLinks = () => {
-  document.querySelectorAll(".social-links a").forEach(function (anchor) {
-    anchor.addEventListener("click", function (event) {
-      const clickedLink = event.target;
-      if (clickedLink) {
-        history.replaceState(null, null, " ");
-        window.scrollTo(0, 0);
+const initThemeToggle = () => {
+  const btn = document.getElementById("themeToggle");
+  const icon = document.getElementById("themeIcon");
+  const saved = localStorage.getItem("theme");
+  if (saved === "dark") {
+    document.body.classList.add("dark");
+    icon.className = "fas fa-sun";
+  }
+  btn?.addEventListener("click", () => {
+    const isDark = document.body.classList.toggle("dark");
+    icon.className = isDark ? "fas fa-sun" : "fas fa-moon";
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
+};
 
-        setTimeout(function () {
-          const contactSection = document.querySelector("#footer");
-          if (contactSection) {
-            contactSection.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
-        }, 500);
-      } else {
-        window.scrollTo(0, 0);
-      }
+const initScrollReveal = () => {
+  const staggered = [".expertise-grid", ".skills-grid", ".about-highlights"];
+  staggered.forEach((sel) => {
+    const container = document.querySelector(sel);
+    if (!container) return;
+    Array.from(container.children).forEach((child, i) => {
+      child.classList.add("reveal");
+      child.style.transitionDelay = `${i * 80}ms`;
     });
   });
+
+  document.querySelectorAll(
+    ".about-text, .contact-inner, .project-card, .section-header"
+  ).forEach((el) => el.classList.add("reveal"));
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 };
 
 const initTyping = () => {
+  if (typeof Typed === "undefined") return;
   new Typed("#main-text", {
     strings: [
-      "A Software Engineer",
-      "A Full Stack Developer",
-      "A Tech Enthusiast",
+      "Solutions Engineer",
+      "Full Stack Developer",
+      "Tech Enthusiast",
     ],
-    typeSpeed: 60,
-    backSpeed: 40,
+    typeSpeed: 55,
+    backSpeed: 32,
     loop: true,
-    startDelay: 1500,
-    backDelay: 2000,
+    startDelay: 900,
+    backDelay: 2200,
     smartBackspace: true,
-    showCursor: false,
-  });
-};
-
-const initMenuToggle = () => {
-  const menuToggle = document.getElementById("menuToggle");
-  const navLinks = document.getElementById("navLinks");
-  menuToggle?.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
-  });
-};
-
-const initScrollToTopOnLoad = () => {
-  window.addEventListener("load", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    showCursor: true,
+    cursorChar: "|",
   });
 };
 
 const init = () => {
-  initScrollToTopOnLoad();
+  window.scrollTo({ top: 0 });
+  initHeaderScroll();
   initAnchorLinks();
   initScrollSpy();
-  initHeroClick();
-  initImageScroll();
-  initLogoToggle();
-  initFooterScroll();
-  initSocialLinks();
-  initTyping();
   initMenuToggle();
+  initLogoToggle();
+  initThemeToggle();
+  initScrollReveal();
+  initTyping();
 };
 
 init();

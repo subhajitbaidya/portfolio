@@ -4,33 +4,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-  </style>
-  <title>Subhajit Baidya Portfolio</title>
+  <title>Subhajit Baidya — Software Engineer</title>
+  <meta name="description"
+    content="Subhajit Baidya — Software Engineer specializing in full-stack systems and production-ready AI applications." />
+  <link rel="icon" href="assets/hero-screenshot.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" />
   <link rel="stylesheet" href="src/style.css" />
-  <link rel="icon" href="assets/myface.png" />
 </head>
 
 <body>
+
   <!-- Header -->
-  <header>
+  <header id="header">
     <div class="container">
       <nav class="navbar">
-        <div class="logo">
-          <img src="assets/myface.png" alt="myface" height="100" width="100" />
-          <i style="font-size: 0.8rem;">click me to toggle website</i>
-        </div>
-
-        <div class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" tabindex="0">
-          ☰
+        <div class="logo" id="logoBtn">
+          <img src="assets/hero-screenshot.png" alt="Subhajit Baidya" />
         </div>
         <ul class="nav-links" id="navLinks">
           <li><a href="#about">About</a></li>
+          <li><a href="#expertise">Expertise</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
+        <div class="nav-right">
+          <a href="assets/Subhajit Baidya.pdf" download class="btn-resume">Resume</a>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <i class="fas fa-moon" id="themeIcon"></i>
+          </button>
+          <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
       </nav>
     </div>
   </header>
@@ -38,35 +48,163 @@
   <!-- Hero Section -->
   <section class="hero" id="home">
     <div class="container">
-      <div class="hero-content">
-        <h1>
-          Hi there! I am Subhajit Baidya<br /><span id="prefix"></span><span id="main-text"></span>
-        </h1>
+      <div class="hero-inner">
+        <div class="hero-card">
+
+          <!-- Warm accent line at top of card -->
+          <div class="card-topline"></div>
+
+          <!-- Metadata row -->
+          <div class="card-meta">
+            <span class="meta-label">Portfolio</span>
+          </div>
+
+          <!-- Main content -->
+          <div class="card-body">
+            <h1 class="hero-name">Subhajit Baidya</h1>
+            <p class="hero-greeting"><span id="main-text"></span></p>
+            <p class="hero-desc">
+              I build scalable full-stack systems and production-ready AI applications.
+              Passionate about distributed architectures, intelligent agents, and crafting
+              interfaces that users love.
+            </p>
+            <div class="hero-cta">
+              <a href="#projects" class="btn btn-primary">See My Work</a>
+              <a href="#contact" class="btn btn-outline">Get In Touch</a>
+            </div>
+          </div>
+
+          <!-- Footer bar -->
+          <div class="card-footer-row">
+            <div class="hero-links">
+              <a href="https://github.com/subhajitbaidya" target="_blank" rel="noopener" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/subhajit-baidya/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="mailto:subhajitbaidya43@gmail.com" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+
+        </div><!-- /.hero-card -->
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll down</span>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">About Me</span>
+        <h2 class="section-title">Who I Am</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I'm a software engineer with a strong focus on building <strong>scalable full-stack systems</strong>
+            and <strong>production-ready AI applications</strong>. My work spans across designing responsive frontends,
+            architecting distributed backends, and engineering intelligent agents that solve real-world problems.
+          </p>
+          <p>
+            I'm also passionate about open-source collaboration and continuously sharpening fundamentals — from
+            low-level system design to data structures and algorithms. Currently exploring <strong>distributed agent
+              orchestration</strong>, CI/CD pipelines for AI, and advanced LLM observability with
+            <strong>LangSmith</strong>.
+          </p>
+        </div>
+        <div class="about-highlights">
+          <div class="highlight-card">
+            <i class="fas fa-layer-group"></i>
+            <div>
+              <h4>Full-Stack Systems</h4>
+              <p>End-to-end distributed application development</p>
+            </div>
+          </div>
+          <div class="highlight-card">
+            <i class="fas fa-robot"></i>
+            <div>
+              <h4>AI Agents</h4>
+              <p>Production LLM agents with LangChain & LangGraph</p>
+            </div>
+          </div>
+          <div class="highlight-card">
+            <i class="fas fa-network-wired"></i>
+            <div>
+              <h4>Distributed Systems</h4>
+              <p>Kafka, RabbitMQ, microservice architectures</p>
+            </div>
+          </div>
+          <div class="highlight-card">
+            <i class="fas fa-code-branch"></i>
+            <div>
+              <h4>Open Source</h4>
+              <p>Actively contributing to impactful projects</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="hero" id="about">
-    <div class="carousel-container">
-      <div class="carousel-wrapper">
-        <!-- Slide 1 -->
-        <div class="carousel-slide">
-          <h2 class="slide-title">About Me</h2>
-          <p class="slide-subtitle">Software Engineer</p>
-          <p style="color: #333;">
-            I'm passionate about building end to end distributed software systems.
-            <br>
-            Skilled in full stack web development and currently exploring GenAI
-            <br>
-            Currently building a microservice LLM based web application for helping users with mental health problems.
-            <br>
-            Also, trying to contribute to interesting open source projects and improving on fundamentals like low level design and data structures/algorithms on a daily basis.
-          </p>
-          <div class="slide-tags">
-            <a href="assets/Subhajit Baidya.pdf" download>
-              <button class="tag">Download Resume</button>
-            </a>
-
+  <!-- Expertise Section -->
+  <section class="expertise" id="expertise">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What I Do</span>
+        <h2 class="section-title">Areas of Expertise</h2>
+      </div>
+      <div class="expertise-grid">
+        <div class="expertise-card">
+          <div class="expertise-icon">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3>Frontend Engineering</h3>
+          <p>Crafting responsive, performant, and accessible user interfaces with clean component architecture, state
+            management, and smooth UX across all devices.</p>
+          <div class="expertise-tags">
+            <span>React</span><span>TypeScript</span><span>TailwindCSS</span><span>Redux</span><span>HTML5/CSS3</span>
+          </div>
+        </div>
+        <div class="expertise-card">
+          <div class="expertise-icon">
+            <i class="fas fa-server"></i>
+          </div>
+          <h3>Backend & Distributed Systems</h3>
+          <p>Architecting scalable microservices with event-driven communication via Kafka and RabbitMQ. Designing
+            systems for high throughput, fault tolerance, and horizontal scalability.</p>
+          <div class="expertise-tags">
+            <span>Node.js</span><span>NestJS</span><span>FastAPI</span><span>Kafka</span><span>RabbitMQ</span><span>Redis</span>
+          </div>
+        </div>
+        <div class="expertise-card">
+          <div class="expertise-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3>Data Modeling & RAG Pipelines</h3>
+          <p>Designing robust schemas and retrieval architectures for both traditional apps and AI systems — including
+            semantic chunking, PageIndex, and hybrid search for context-aware LLM outputs.</p>
+          <div class="expertise-tags">
+            <span>PostgreSQL</span><span>MongoDB</span><span>Vector DBs</span><span>Semantic
+              Search</span><span>RAG</span>
+          </div>
+        </div>
+        <div class="expertise-card">
+          <div class="expertise-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3>AI Agent Development</h3>
+          <p>Building, deploying, and continuously improving autonomous agents with multi-step workflows, tool use,
+            memory, and planning. Integrating agents with enterprise systems via Apache Camel.</p>
+          <div class="expertise-tags">
+            <span>LangChain</span><span>LangGraph</span><span>LangSmith</span><span>Apache Camel</span><span>Prompt
+              Engineering</span>
           </div>
         </div>
       </div>
@@ -76,71 +214,47 @@
   <!-- Skills Section -->
   <section class="skills" id="skills">
     <div class="container">
-      <h2 class="section-title">My Skills</h2>
-      <div class="skills-container">
-        <div class="skill-card">
-          <h3>Programming Languages</h3>
-          <ul>
-            <li>Python</li>
-            <li>TypeScript</li>
-            <li>JavaScript</li>
-            <li>Core Java</li>
-          </ul>
+      <div class="section-header">
+        <span class="section-tag">Tech Stack</span>
+        <h2 class="section-title">Skills &amp; Technologies</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3><i class="fas fa-code"></i> Languages</h3>
+          <div class="skill-tags">
+            <span>Python</span><span>TypeScript</span><span>JavaScript</span><span>Java</span>
+          </div>
         </div>
-        <div class="skill-card">
-          <h3>Front-end Development</h3>
-          <ul>
-            <li>HTML5</li>
-            <li>CSS3</li>
-            <li>React.js</li>
-            <li>Tailwindcss</li>
-            <li>Redux</li>
-          </ul>
+        <div class="skill-group">
+          <h3><i class="fas fa-desktop"></i> Frontend</h3>
+          <div class="skill-tags">
+            <span>React.js</span><span>TailwindCSS</span><span>Redux</span><span>HTML5</span><span>CSS3</span>
+          </div>
         </div>
-        <div class="skill-card">
-          <h3>Back-end Development</h3>
-          <ul>
-            <li>Node.Js</li>
-            <li>Express.Js</li>
-            <li>Fast API</li>
-            <li>Restful API</li>
-            <li>GraphQL</li>
-            <li>gRPC</li>
-          </ul>
-
+        <div class="skill-group">
+          <h3><i class="fas fa-server"></i> Backend</h3>
+          <div class="skill-tags">
+            <span>Node.js</span><span>NestJS</span><span>Express.js</span><span>FastAPI</span><span>GraphQL</span><span>gRPC</span><span>REST</span>
+          </div>
         </div>
-        <div class="skill-card">
-          <h3>Gen AI</h3>
-          <ul>
-            <li>Langchain</li>
-            <li>Langgraph</li>
-            <li>LLMs(OpenAI, Ollama, HuggingFace)</li>
-            <li>RAG(Retrieval Augmented Generation)</li>
-            <li>Vector Databases(Chroma, FAISS)</li>
-
-          </ul>
-
+        <div class="skill-group">
+          <h3><i class="fas fa-brain"></i> AI / Gen AI</h3>
+          <div class="skill-tags">
+            <span>LangChain</span><span>LangGraph</span><span>LangSmith</span><span>RAG</span><span>OpenAI</span><span>Ollama</span><span>HuggingFace</span>
+          </div>
         </div>
-        <div class="skill-card">
-          <h3>Databases</h3>
-          <ul>
-            <li>MySQL</li>
-            <li>PostgreSQL</li>
-            <li>MongoDB</li>
-            <li>Redis</li>
-          </ul>
-
+        <div class="skill-group">
+          <h3><i class="fas fa-database"></i> Databases</h3>
+          <div class="skill-tags">
+            <span>PostgreSQL</span><span>MongoDB</span><span>MySQL</span><span>Redis</span><span>FAISS</span><span>Chroma</span>
+          </div>
         </div>
-        <div class="skill-card">
-          <h3>Devops and Tools</h3>
-          <ul>
-            <li>Git</li>
-            <li>GitHub</li>
-            <li>Agile Methodologies</li>
-            <li>Postman</li>
-            <li>Docker</li>
-            <li>Kubernetes</li>
-          </ul>
+        <div class="skill-group">
+          <h3><i class="fas fa-tools"></i> DevOps &amp; Tools</h3>
+          <div class="skill-tags">
+            <span>Docker</span><span>Kubernetes</span><span>Kafka</span><span>RabbitMQ</span><span>Apache
+              Camel</span><span>Git</span><span>Postman</span>
+          </div>
         </div>
       </div>
     </div>
@@ -148,123 +262,125 @@
 
   <!-- Projects Section -->
   <section class="projects" id="projects">
-
-
     <div class="container">
-      <h2 class="section-title">What I am currently working on</h2>
+      <div class="section-header">
+        <span class="section-tag">My Work</span>
+        <h2 class="section-title">Featured Projects</h2>
+      </div>
       <div class="projects-grid">
-        <div class="project-card">
-          <img src="assets/mindspace.png" alt="mindspace" class="project-image">
-          <div class="project-content">
-            <span class="title">
-              Mindspace
-            </span>
 
-
-            <p class="desc">
-              A modern application designed to support individuals dealing with mental health challenges, helping them cope, heal, and improve their well-being over time. It offers a safe space for reflection, community support, marketplace and healthy distractions that encourage a better, more balanced life.
-            </p>
-            <br>
-            <b>Tech:</b><span style="color: #333; font-weight: 400;"> Typescript, React.js, Node.js, Express.js, MongoDB, PostgreSQL, Redis, Restful API, GraphQL, Python, Langchain, Langgraph, FastAPI, Docker</span>
-            <br>
-
-            <a class="action" href="https://github.com/subhajitbaidya/MindSpace" target="_blank">
-              Github Link
-              <span aria-hidden="true">
-                →
-              </span>
-            </a>
+        <div class="project-card featured">
+          <div class="project-image-wrap">
+            <img src="assets/mindspace.png" alt="MindSpace" class="project-image" />
+            <div class="project-overlay">
+              <span class="project-label">Featured</span>
+            </div>
           </div>
-        </div>
-        <div class="project-card">
-          <img src="assets/csbot.png" class="project-image" alt="csbot">
           <div class="project-content">
-            <a href="#">
-              <span class="title">
-                Customer Support RAG Application
-              </span>
-            </a>
-
-            <p class="desc">
-              Retrieval-Augmented Generation (RAG) based AI support agent with integrated tool access, enabling it to perform customer support tasks autonomously and provide context-aware troubleshooting responses.
-            </p>
-            <br>
-            <b>Tech:</b><span style="color: #333; font-weight: 400;"> Python, Langchain, Langgraph, FastAPI, Docker</span>
-            <br>
-
-            <a class="action" href="https://github.com/subhajitbaidya/support-chatbot" target="_blank">
-              Github Link
-              <span aria-hidden="true">
-                →
-              </span>
-            </a>
-          </div>
-        </div>
-        <div class="project-card">
-          <img src="assets/discord.png" alt="discordbot" class="project-image">
-          <div class="project-content">
-            <a href="#">
-              <span class="title">
-                Discord Web Scrapping Bot
-              </span>
-            </a>
-
-            <p class="desc">
-              Interactive Discord Bot Application which is connected to an LLM in the backend which generates summaries from web scraped data.
-            </p>
-
-            <br>
-            <b>Tech:</b><span style="color: #333; font-weight: 400;"> Discord.js, Ollama.js, Node.js</span>
-            <br>
-
-            <a class="action" href="https://github.com/subhajitbaidya/discord-bot" target="_blank">
-              Github link
-              <span aria-hidden="true">
-                →
-              </span>
-            </a>
+            <h3 class="project-title">MindSpace</h3>
+            <p class="project-desc">A modern mental health support platform offering safe spaces for reflection,
+              community support, marketplace features, and healthy distractions. Built as a full microservice
+              application with LLM-powered assistance and agentic workflows.</p>
+            <div class="project-tags">
+              <span>TypeScript</span><span>React.js</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>PostgreSQL</span><span>Redis</span><span>GraphQL</span><span>LangChain</span><span>LangGraph</span><span>FastAPI</span><span>Docker</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/subhajitbaidya/MindSpace" target="_blank" rel="noopener" class="project-link">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
           </div>
         </div>
 
+        <div class="project-card">
+          <div class="project-image-wrap">
+            <img src="assets/csbot.png" class="project-image" alt="Customer Support RAG" />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Customer Support RAG Agent</h3>
+            <p class="project-desc">Retrieval-Augmented Generation AI support agent with integrated tool access —
+              enabling autonomous customer support with context-aware troubleshooting responses via multi-step agentic
+              reasoning.</p>
+            <div class="project-tags">
+              <span>Python</span><span>LangChain</span><span>LangGraph</span><span>FastAPI</span><span>Docker</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/subhajitbaidya/support-chatbot" target="_blank" rel="noopener"
+                class="project-link">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image-wrap">
+            <img src="assets/discord.png" alt="Discord Bot" class="project-image" />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Discord Web Scraping Bot</h3>
+            <p class="project-desc">Interactive Discord bot connected to a local LLM backend that generates intelligent,
+              contextual summaries from web-scraped data on demand — entirely self-hosted with Ollama.</p>
+            <div class="project-tags">
+              <span>Discord.js</span><span>Ollama.js</span><span>Node.js</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/subhajitbaidya/discord-bot" target="_blank" rel="noopener"
+                class="project-link">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section class="contact">
-
-    <h2 class="section-title" id="contact">
-      <img src="assets/coffee.png" height="20" width="50" alt="Coffee" />
-      Get in Touch
-      <span id="emailText" style="display: block;">
-        – <a href="mailto:subhajitbaidya43@gmail.com">subhajitbaidya43@gmail.com</a>
-      </span>
-
-    </h2>
-
-
-  </section>
-
-  <!-- Footer -->
-  <footer id="footer">
+  <section class="contact" id="contact">
     <div class="container">
-      <div class="footer-content">
-        <div class="social-links">
-          <a href="https://github.com/subhajitbaidya" target="_blank" aria-label="GitHub">
-            <i>GitHub</i>
+      <div class="section-header">
+        <span class="section-tag">Contact</span>
+        <h2 class="section-title">Get In Touch</h2>
+      </div>
+      <div class="contact-inner">
+        <p class="contact-desc">
+          I'm currently open to new opportunities and collaborations. Whether you have a project idea,
+          want to discuss distributed systems or AI agents, or just want to say hi — my inbox is always open!
+        </p>
+        <a href="mailto:subhajitbaidya43@gmail.com" class="btn btn-primary btn-large">
+          <i class="fas fa-paper-plane"></i> Say Hello
+        </a>
+        <div class="contact-links">
+          <a href="https://github.com/subhajitbaidya" target="_blank" rel="noopener" class="contact-github">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
           </a>
-          <a href="https://www.linkedin.com/in/subhajit-baidya/" target="_blank" aria-label="LinkedIn">
-            <i>LinkedIn</i>
+          <a href="https://www.linkedin.com/in/subhajit-baidya/" target="_blank" rel="noopener" class="contact-linkedin">
+            <i class="fab fa-linkedin-in"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a href="mailto:subhajitbaidya43@gmail.com" class="contact-gmail">
+            <i class="fab fa-google"></i>
+            <span>Mail</span>
           </a>
         </div>
       </div>
-      <div class="copyright">
-        &copy; 2025 Subhajit Baidya. All rights reserved.
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <p>Designed &amp; Built by <strong>Subhajit Baidya</strong></p>
+        <p class="copyright">&copy; 2025 All Rights Reserved</p>
       </div>
     </div>
   </footer>
-  <!-- <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script> -->
+
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
   <script src="src/main.js"></script>
 </body>
 
